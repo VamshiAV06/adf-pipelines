@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "practicev1adf"
+		},
+		"ls_Amazon_S3_secretAccessKey": {
+			"value": ""
+		},
+		"ls_azure_sql_db_password": {
+			"value": ""
+		},
+		"ls_blob_source_connectionString": {
+			"value": ""
+		},
+		"ls_datalake_sin_accountKey": {
+			"value": ""
+		},
+		"ls_mysql_onpremise_password": {
+			"value": ""
+		},
+		"ls_Amazon_S3_properties_typeProperties_accessKeyId": {
+			"value": "AKIA3TOD5VXOLD3R6J3W"
+		},
+		"ls_azure_sql_db_properties_typeProperties_server": {
+			"value": "azuresqlserverjune.database.windows.net"
+		},
+		"ls_azure_sql_db_properties_typeProperties_database": {
+			"value": "azure_sql_db"
+		},
+		"ls_azure_sql_db_properties_typeProperties_userName": {
+			"value": "azuresqldb"
+		},
+		"ls_datalake_sin_properties_typeProperties_url": {
+			"value": "https://practicev1datalake.dfs.core.windows.net/"
+		},
+		"ls_github_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"ls_mysql_onpremise_properties_typeProperties_server": {
+			"value": "127.0.0.1"
+		},
+		"ls_mysql_onpremise_properties_typeProperties_database": {
+			"value": "db_vamshi"
+		},
+		"ls_mysql_onpremise_properties_typeProperties_username": {
+			"value": "root"
+		},
+		"TG_ProductionReady_PL_properties_typeProperties_scope": {
+			"value": "/subscriptions/b819f000-9712-4968-8f88-8f5a2e69e3ca/resourceGroups/Vamshi_prt1/providers/Microsoft.Storage/storageAccounts/practicev1datalake"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

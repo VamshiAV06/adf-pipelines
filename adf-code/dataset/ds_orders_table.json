@@ -1,0 +1,20 @@
+{
+	"name": "ds_orders_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake_sin",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "order_table",
+				"fileSystem": "joins-container"
+			}
+		},
+		"schema": []
+	}
+}

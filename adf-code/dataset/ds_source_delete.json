@@ -1,0 +1,27 @@
+{
+	"name": "ds_source_delete",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake_sin",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().p_name",
+					"type": "Expression"
+				},
+				"fileSystem": "history-files-container"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

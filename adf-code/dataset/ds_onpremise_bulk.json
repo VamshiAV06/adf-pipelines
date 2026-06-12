@@ -1,0 +1,13 @@
+{
+	"name": "ds_onpremise_bulk",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_mysql_onpremise",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

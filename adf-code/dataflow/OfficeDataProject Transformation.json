@@ -1,0 +1,86 @@
+{
+	"name": "OfficeDataProject Transformation",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_csv_trans",
+						"type": "DatasetReference"
+					},
+					"name": "Transformation",
+					"description": "OfficeDataProject Transformation"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_transformation",
+						"type": "DatasetReference"
+					},
+					"name": "sink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select"
+				},
+				{
+					"name": "filter",
+					"description": "filter row emp id!=1000"
+				},
+				{
+					"name": "splitDepartment"
+				},
+				{
+					"name": "aggregate"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          employee_id as integer,",
+				"          employee_name as string,",
+				"          department as string,",
+				"          states as string,",
+				"          salary as integer,",
+				"          age as integer,",
+				"          bonus as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> Transformation",
+				"Transformation select(mapColumn(",
+				"          employee_id,",
+				"          department,",
+				"          states,",
+				"          salary,",
+				"          age,",
+				"          bonus",
+				"     ),",
+				"     partitionBy('hash', 1),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select",
+				"select filter(employee_id!=1000,",
+				"     partitionBy('hash', 1)) ~> filter",
+				"filter split(department==\"Accounts\",",
+				"     department==\"Finance\",",
+				"     department==\"HR\",",
+				"     disjoint: false,",
+				"     partitionBy('hash', 1)) ~> splitDepartment@(Accounts, Finance, HR, otherdepartment)",
+				"splitDepartment@Accounts aggregate(groupBy(states),",
+				"     bonus = sum(bonus),",
+				"     partitionBy('hash', 1)) ~> aggregate",
+				"aggregate sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink"
+			]
+		}
+	}
+}

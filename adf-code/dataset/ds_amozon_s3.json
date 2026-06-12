@@ -1,0 +1,25 @@
+{
+	"name": "ds_amozon_s3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_Amazon_S3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AmazonS3Location",
+				"bucketName": "amazon-adf-01-06-26",
+				"folderPath": "sales-data",
+				"fileName": "MultipleRowsIntoSingleRow.txt"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,24 @@
+{
+	"name": "TG_ProductionReady_PL",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "4_ProductionReady_PL",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/source-container/blobs/Files/file_9000",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/b819f000-9712-4968-8f88-8f5a2e69e3ca/resourceGroups/Vamshi_prt1/providers/Microsoft.Storage/storageAccounts/practicev1datalake",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

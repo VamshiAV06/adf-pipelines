@@ -1,0 +1,27 @@
+{
+	"name": "ds_MySql_bulk",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_mysql_onpremise",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_database": {
+				"type": "string"
+			},
+			"p_table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": {
+				"value": "@dataset().p_table_name",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

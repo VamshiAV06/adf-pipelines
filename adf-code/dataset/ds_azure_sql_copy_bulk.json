@@ -1,0 +1,31 @@
+{
+	"name": "ds_azure_sql_copy_bulk",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_azure_sql_db",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_data_base": {
+				"type": "string"
+			},
+			"p_table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().p_data_base",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().p_table_name",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

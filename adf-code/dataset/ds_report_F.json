@@ -1,0 +1,25 @@
+{
+	"name": "ds_report_F",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake_sin",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Finance_File",
+				"folderPath": "Final_Files",
+				"fileSystem": "reporting-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

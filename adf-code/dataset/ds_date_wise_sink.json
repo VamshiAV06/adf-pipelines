@@ -1,0 +1,38 @@
+{
+	"name": "ds_date_wise_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake_sin",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_folder_path": {
+				"type": "String"
+			},
+			"P_file_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().P_file_name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().p_folder_path",
+					"type": "Expression"
+				},
+				"fileSystem": "date-based-folder-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
